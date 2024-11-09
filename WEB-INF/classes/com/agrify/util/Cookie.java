@@ -6,7 +6,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * Cookie
@@ -14,11 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 public class Cookie {
 
 	// Get cookie via the name of the cookie
-	public static javax.servlet.http.Cookie getCookie(HttpServletRequest request, String name) {
-		javax.servlet.http.Cookie[] cookies = request.getCookies();
+	public static jakarta.servlet.http.Cookie getCookie(HttpServletRequest request, String name) {
+		jakarta.servlet.http.Cookie[] cookies = request.getCookies();
 		
 		if (cookies != null) {
-			for (javax.servlet.http.Cookie cookie : cookies) {
+			for (jakarta.servlet.http.Cookie cookie : cookies) {
 				if (cookie.getName().equals(name)) {
 					if (cookie != null) {
 						return cookie;
@@ -32,10 +32,10 @@ public class Cookie {
 	
 	// Get cookie data via the name of the cookie
 	public static JSONObject getCookieData(HttpServletRequest request, String name) {
-		javax.servlet.http.Cookie[] cookies = request.getCookies();
+		jakarta.servlet.http.Cookie[] cookies = request.getCookies();
 		
 		if (cookies != null) {
-			for (javax.servlet.http.Cookie cookie : cookies) {
+			for (jakarta.servlet.http.Cookie cookie : cookies) {
 				if (cookie.getName().equals(name)) {
 					if (cookie != null) {
 						String dataString = new String(Base64.getDecoder().decode(cookie.getValue()));

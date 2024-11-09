@@ -1,9 +1,9 @@
 package com.agrify.servlets;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 import com.agrify.dl.user.UserDAOImpl;
@@ -19,7 +19,7 @@ public class Index extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			String cookie_name = "user_data_cookie";
-			javax.servlet.http.Cookie cookie = Cookie.getCookie(request, cookie_name);
+			jakarta.servlet.http.Cookie cookie = Cookie.getCookie(request, cookie_name);
 
 			// If there is a cookie determine the user and show him his profile page
 			if (cookie == null) {

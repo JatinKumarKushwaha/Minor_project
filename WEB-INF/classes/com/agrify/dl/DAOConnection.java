@@ -21,11 +21,7 @@ public class DAOConnection {
 			String DB_PASS = dotenv.get("DB_PASS");
 			String DB_PORT = dotenv.get("DB_PORT");
 			String DB_URL = "jdbc:mysql://" + DB_HOST + ":" + DB_PORT +"/" + DB_NAME;
-
-			System.out.println(DB_URL);
-			System.out.println(DB_USER);
-			System.out.println(DB_PASS);
-
+			
 			// Old class do not use
 			// Class.forName("com.mysql.jdbc.Driver");
 			// New class, but class should now be loaded automatically although will still

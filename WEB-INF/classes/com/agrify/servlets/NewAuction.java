@@ -2,10 +2,10 @@ package com.agrify.servlets;
 
 import java.util.Base64;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -53,7 +53,7 @@ public class NewAuction extends HttpServlet {
 			}
 
 			String cretorId = "";
-			javax.servlet.http.Cookie[] ck = request.getCookies();
+			jakarta.servlet.http.Cookie[] ck = request.getCookies();
 			if (ck != null) {
 				String data = ck[0].getValue();
 				if (!data.equals("") || data != null) {

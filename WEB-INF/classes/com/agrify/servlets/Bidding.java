@@ -4,11 +4,11 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.RequestDispatcher;
+import jakarta.servlet.RequestDispatcher;
 import com.agrify.util.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
@@ -26,7 +26,7 @@ public class Bidding extends HttpServlet {
 		try {
 			System.out.println("doGet()");
 			String cookie_name = "user_data_cookie";
-			javax.servlet.http.Cookie cookie = Cookie.getCookie(request, cookie_name);
+			jakarta.servlet.http.Cookie cookie = Cookie.getCookie(request, cookie_name);
 
 			// If there is a cookie determine the user and show him his profile page
 			if (cookie == null) {
@@ -86,7 +86,7 @@ public class Bidding extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			String cookie_name = "user_data_cookie";
-			javax.servlet.http.Cookie cookie = Cookie.getCookie(request, cookie_name);
+			jakarta.servlet.http.Cookie cookie = Cookie.getCookie(request, cookie_name);
 
 			// If there is a cookie determine the user and show him his profile page
 			if (cookie == null) {
@@ -144,7 +144,7 @@ public class Bidding extends HttpServlet {
 				final JSONObject json_string = new JSONObject(auction_data);
 				final String auction_data_cookie = Base64.getEncoder()
 						.encodeToString(json_string.toString().getBytes());
-				javax.servlet.http.Cookie ckk = new javax.servlet.http.Cookie("auction_data_cookie",
+				jakarta.servlet.http.Cookie ckk = new jakarta.servlet.http.Cookie("auction_data_cookie",
 						auction_data_cookie);
 				response.addCookie(ckk);
 				RequestDispatcher rd = request.getRequestDispatcher("/buyer_auction_page.html");
