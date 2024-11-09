@@ -155,9 +155,6 @@ public class User {
 			user.setPassword(password);
 			UserDAOImpl userDAO = new UserDAOImpl();
 
-			System.out.println(user.getEmail());
-			System.out.println(user.getPassword());
-
 			if (!userDAO.present(user)) {
 				data.put("email", "not-registered");
 				final JSONObject json_string = new JSONObject(data);

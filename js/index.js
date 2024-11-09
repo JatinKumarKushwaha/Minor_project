@@ -1,29 +1,35 @@
 // Use new api to check if the user is buyer or seller
 // https://javascript.info/formdata
 // https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData
+// https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_forms_through_JavaScript#using_xmlhttprequest_and_the_formdata_object
 
-api_url = "http://localhost:8080/Agrify/api/user/check";
+const api_url = "http://localhost:8080/Agrify/api/user/check";
 
-submitter = document.getElementById("login-button").addEventListener("click", (e) => {
-	e.preventDefault();
-	loginCheck();
-});
+const form = document.getElementById("loginform");
 
-async function loginCheck() {
+function loginCheck() {
 	// Get data from the form and then call the user_check api to check if the user is a buyer or seller
 	// Redirect the user to there profile page after that
 
 	const XHR = new XMLHttpRequest();
 
-	const form = document.getElementById("loginform");
-	submitter = document.getElementById("login-button");
-	let formData = new FormData(form, submitter);
+	const formData = new FormData(form);
 
 	let formDataJSON = {};
 
 	for (const [key, value] of formData) {
 		formDataJSON[key] = value;
 	}
+
+	XHR.addEventListener("load", (event) => {
+		console.log(event.target.responseText);
+	});
+
+	XHR.addEventListener("error", () => {
+		console.log("Oops! Something went wrong.");
+	});
+
+	XHR.open("POST", "http://localhost:8080/Agrify/login");
 
 	console.log(formDataJSON);
 
@@ -44,19 +50,19 @@ async function loginCheck() {
 			console.log(data);
 			if (data.password == "invalid") {
 				// Tell user that the password is too long
+				console.log("password is too long");
 			}
 			if (data.email == "invalid") {
 				// Tell user that the email is too long or is incorrect
+				console.log("email is too long or incorrect");
 			}
 			if (data.password != "not-matching" && data.email != "not-registered") {
 				if (data.role == "Buyer") {
-					XHR.addEventListener("load", (event) => {
-						console.log("Yeah! Data sent and response loaded.");
-					});
+					XHR.send(formData);
 				} else if (data.role == "Seller") {
-
+					XHR.send(formData);
 				} else {
-
+					console.log("Something went wrong");
 				}
 			} else if (data.email == "not-registered") {
 				form.querySelector("#login-email");
@@ -64,6 +70,13 @@ async function loginCheck() {
 		})
 		.catch((error) => console.error("FETCH ERROR:", error));
 }
+
+
+form.addEventListener("submit", (e) => {
+	e.preventDefault();
+	loginCheck();
+});
+
 
 function loginToggle() {
 	document.querySelector(".login").classList.toggle("activelogin");
