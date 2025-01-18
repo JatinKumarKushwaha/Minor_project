@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Auction</title>
+	<link rel="stylesheet" href="/src/main/resources/static/pages/auction/css/auction_page.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+	<div id="navbar">
+		<div class="containerhamburger" onclick="myFunction(this)">
+			<div class="bar1"></div>
+			<div class="bar2"></div>
+			<div class="bar3"></div>
+		</div>
+		<div class="auction-list register-button"><a href="auction_list.html" target="_blank"><button><i
+						class="fa fa-circle"></i>
+					Live Auctions</button></a></div>
+
+		<ul class="sidebar">
+			<li class="nav"><a href="/Agrify">Home</a></li>
+			<li class="nav"><a href="#">Services</a></li>
+			<li class="nav"><a href="#contact">Contact Us</a></li>
+			<li class="nav">
+				<form action="/Agrify/logout" method="post">
+					<input type="submit" class="logout" value="Logout">
+				</form>
+			</li>
+		</ul>
+
+	</div>
+
+	<div class="container3a">
+		<div class="bidders-list">Bidders Table</div>
+		<div class="container3a-child">
+			<table id="bidders-table">
+				<tr>
+					<th>S.No</th>
+					<th>Bidders Name</th>
+					<th>Price</th>
+				</tr>
+				<tr>
+					<td>1.</td>
+					<td>Abhishek </td>
+					<td>&#8377 2000</td>
+				</tr>
+				<tr>
+					<td>2.</td>
+					<td>mousam </td>
+					<td>&#8377 2000</td>
+				</tr>
+				<tr>
+					<td>3.</td>
+					<td>sunil </td>
+					<td>&#8377 2000</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="container4" id="start-bid">
+		<div class="form">
+			<form action="/Agrify/bid" method="post">
+				<div class="enter-bid"><input type="text" placeholder="Enter your bid amount" name="bid"></div>
+				<div class="submit-bid-button enter-bid .btn"><button submit="">Submit bid</button></div>
+			</form>
+		</div>
+	</div>
+
+	<div class="container3">
+		<div class="auction-timer">
+			<h1>The auction ends in</h1>
+			<div class="timer">
+				<p>00:00:00</p>
+			</div>
+		</div>
+		<div class="bidding-info">
+			<div class="active bidding-info1">
+				<div class="active-bidders bidding-info-child">
+					<div class="active-count">
+						<p>78</p>
+					</div>
+					<div>
+						<p>Active Bidders</p>
+					</div>
+				</div>
+				<div class="bidding-info-child1 bid-img">
+					<div><img src="images/active_bidders.png" alt=""></div>
+				</div>
+			</div>
+			<div class="watch bidding-info1">
+				<div class="auction-watching bidding-info-child">
+					<div class="auction-watching-count">
+						<p>225</p>
+					</div>
+					<div>Watching</div>
+				</div>
+				<div class="bidding-info-child2 bid-img">
+					<div><img src="images/watching.png" alt=""></div>
+				</div>
+			</div>
+			<div class="bid-count bidding-info1">
+				<div class="total-bids bidding-info-child">
+					<div class="total-bids-count">
+						<p>55</p>
+					</div>
+					<div>
+						<p>Total bids</p>
+					</div>
+				</div>
+				<div class="bidding-info-child3 bid-img">
+					<div><img src="images/bid_count.png" alt=""></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container6">
+		<div class="menu cont6">
+			<h3>MENU</h3>
+			<p>Home</p>
+			<p>Market</p>
+			<p>Services</p>
+		</div>
+		<div class="about cont6">
+			<h3>ABOUT</h3>
+			<p>Our Company</p>
+			<p>Our People</p>
+			<p>FAQs</p>
+		</div>
+		<div class="legal cont6">
+			<h3>LEGAL</h3>
+			<p>Terms & Conditions</p>
+			<p>Privacy</p>
+			<p>Cookies Policy</p>
+		</div>
+		<div class="contact cont6">
+			<h3>Contact Us</h3>
+			<p>+91 12546 35462</p>
+			<p>example@gmail.com</p>
+		</div>
+	</div>
+
+	<div class="copyright">
+		<p>&copy;2023,Agrify-Emandi-All Rights Reserved</p>
+	</div>
+
+	<script type="module" src="js/bidding.js"></script>
+</body>
+
+</html>
